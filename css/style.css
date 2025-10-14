@@ -1,0 +1,701 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+body{
+    font-family: "Anek Devanagari", sans-serif;
+    font-size: 22px;
+    background: url(../image/bg.png) no-repeat center 100px;
+}
+/* <!-- Google Fonts --> */
+@import url('https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@100..800&display=swap');
+#wrap{
+   min-width: 1400px;
+    overflow: hidden;
+}
+ 
+h1{
+    width: 1400px;
+    margin: 0 auto;
+    font-size: 30px;
+    line-height: 0.8;
+    margin-top: 200px;
+    margin-bottom: 50px;
+}
+h1 img{
+  padding-top: 50px;
+    padding-right: 10px;
+}
+/*  <!-- header-area start --> */
+#header_wrap {
+  width: 1400px;
+  height: 50px;
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  z-index: 9;
+}
+
+#header_wrap.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: none;
+  width: 100%;
+  padding-bottom: 20px;
+  text-align: center;
+  background: #2B352B;
+  display: flex;
+  justify-content: center;
+}
+
+section,
+div[id] {
+  scroll-margin-top: 70px;
+}
+
+.nav {
+  width: 1400px;
+  display: flex;
+  justify-content: center;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.nav li {
+  display: block;
+  margin: 0 30px;
+}
+
+.nav>li:hover {
+  color: #ffd000;
+}
+
+/* <!-- video start --> */
+#video {
+  position: relative;
+  width: 1920px;
+  margin: 0px auto;
+  height: 950px;
+}
+
+/*  <!-- about_wrapstart --> */
+#about_wrap {
+  width: 1400px;
+  margin: 0px auto;
+  margin-top: 120px;
+}
+
+.about {
+  width: 1400px;
+  margin: 0px auto;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+
+}
+
+.about li {
+  padding: 0px 10px;
+  display: block;
+  font-size: 40px;
+}
+
+#Profile {
+  width: 1400px;
+  margin: 0px auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Profile_img {
+  width: 460px;
+  margin-top: 20px;
+}
+
+
+.Profile_img div {
+  margin-top: 10px;
+}
+.plus{
+  box-sizing: border-box;
+  padding: 8px;
+  margin-top: 50px;
+    background-color: #F4F6F3;
+    border-radius: 20px;
+}
+.Number {
+  width: 700px;
+  margin: 15px 20px;
+  display: flex;
+justify-content: space-between;
+  font-size: 18px;
+  font-weight: 500;
+}
+.p{
+  padding-right: 20px;
+}
+/* 디자이너 정혜원입니다. */
+.about_text {
+  width: 740px;
+  font-size: 40px;
+  font-weight: 300;
+}
+
+.regular {
+  font-weight: 400;
+  font-size: 50px;
+}
+
+.about_text .bold {
+  font-size: 55px;
+  font-weight: 600;
+  padding-right: 5px;
+}
+
+.name {
+  margin-top: 10px;
+  text-align: right;
+  position: relative;
+}
+
+.name img {
+  width: 50%;
+  position: absolute;
+  top: 45px;
+  left: 250px;
+  z-index: -1;
+}
+
+.about_text .text_2 {
+  margin-top: 100px;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.text_2 p {
+  margin-top: 22px;
+}
+
+.text_2 span {
+  font-weight: 500;
+}
+
+/* <!-- Project_wrap start --> */
+.Project {
+  width: 1400px;
+  margin: 0px auto;
+  margin-top: 60px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Project li {
+  display: block;
+}
+
+.Project_box h2 {
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.Project_box p {
+  font-size: 25px;
+  padding: 5px 0px 15px;
+  font-weight: 600;
+}
+
+  .img_wrap {
+    width: 680px;
+    height: 450px;
+    border-radius: 30px;
+  overflow: hidden;
+}
+.img_wrap img {
+   width: 680px;
+    height: 450px;
+  transition: transform .4s ease;
+}
+.img_wrap:hover img {
+  transform: scale(1.08); /* 확대 비율 조절 */
+}
+/* 프로젝트 링크 주소 */
+.link_site {
+  display: flex;
+  margin-top: 20px;
+}
+
+.link_site li {
+  display: block;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  border-radius: 30px;
+}
+
+.link_site li a {
+  font-size: 16px;
+  border-radius: 30px;
+  border: 1px solid #2B352B;
+  padding: 2px 25px 5px;
+  box-sizing: border-box;
+}
+
+.link_site>li>a:hover {
+  background-color: #2B352B;
+  color: #fff;
+  font-weight: 300;
+}
+
+.sub_text {
+  margin-left: 20px;
+}
+
+.Project .sub_text {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+/* 아트워크 시작 */
+/* 상세페이지 박스 */
+/* 상세페이지 박스 */
+#Detailed_Page {
+  margin-top: 100px;
+  margin-bottom: 150px;
+}
+
+/* 첫 번째 줄: 이미지 왼쪽, 텍스트 오른쪽 */
+#Swiper_wrap {
+  margin-top: 60px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  gap: 50px;
+}
+
+.Swiper_img {
+  width: 70%;
+}
+
+.Swiper_text {
+  width: 25%;
+  margin-right: 5%;
+  padding-top: 50px;
+  text-align: right;
+}
+
+/* 두 번째 줄: 텍스트 왼쪽, 이미지 오른쪽 */
+#Swiper_wrap2 {
+  margin-top: 100px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  gap: 50px;
+}
+
+.Swiper_text_left .tittle_1 {
+  font-size: 25px;
+  font-weight: 300;
+}
+
+.Swiper_text_left h2 {
+  font-size: 35px;
+  position: relative;
+  margin-bottom: 60px;
+}
+
+.Swiper_text_left {
+  width: 25%;
+  padding-top: 50px;
+  text-align: left;
+  position: relative;
+  margin-left: 5%;
+}
+
+.Swiper_text_left img {
+  scale: 0.65;
+  position: absolute;
+  top: 110px;
+  left: -55px;
+  z-index: -1;
+}
+
+.Swiper_img_right {
+  width: 70%;
+}
+
+/* Swiper 공통 스타일 */
+.swiper {
+  width: 100%;
+  padding: 40px 0;
+}
+
+.swiper-slide {
+  width: 420px !important;
+  height: 500px !important;
+  border-radius: 30px;
+  overflow: hidden;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 30px;
+}
+
+.swiper-pagination {
+  display: none;
+}
+
+/* 텍스트 스타일 */
+.Swiper_text .tittle_1 {
+  font-size: 25px;
+  font-weight: 300;
+}
+
+.Swiper_text h2 {
+  font-size: 35px;
+  position: relative;
+  margin-bottom: 60px;
+}
+
+.Swiper_text img {
+  scale: 0.75;
+  position: absolute;
+  top: 110px;
+  right: 55px;
+  z-index: -1;
+}
+
+.swiper_list a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  margin: 10px 0;
+  cursor: pointer;
+  border-radius: 30px;
+  transition: background 0.3s ease;
+}
+
+.swiper_list p {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.swiper_list.active,
+.swiper_list:hover {
+  background-color: #2b352b;
+  border-radius: 30px;
+  color: #fff;
+  transition: background 0.3s ease;
+}
+
+.line {
+  margin: 5px 0;
+  height: 1px;
+  background: #000;
+}
+
+/*팝업 */
+/* === modal base === */
+#workModal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 9999;
+}
+
+#workModal.is-open {
+  display: block;
+}
+
+#workModal .modal__scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, .55);
+  backdrop-filter: blur(1px);
+}
+
+#workModal .modal__panel {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(.98);
+  border-radius: 14px;
+  padding: 24px;
+  width: min(1100px, 92vw);
+  max-height: 90vh;
+  display: flex;
+  gap: 20px;
+  animation: modalIn .18s ease-out forwards;
+}
+
+#workModal .modal__content video,
+#workModal .modal__content iframe {
+  max-height: 80vh;
+  max-width: 100%;
+  width: 100%;
+  border: 0;
+  border-radius: 10px;
+  background: #000;
+}
+
+#workModal .modal__content {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  overflow: auto;
+}
+
+#workModal img {
+  max-height: 80vh;
+  max-width: calc((1100px - 24px*2 - 20px)/2);
+  height: 80%;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.384);
+}
+
+/* 닫기 버튼 */
+#workModal .modal__close {
+  position: absolute;
+  right: 50px;
+  top: 40px;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: #2B352B;
+  color: #fff;
+  font-size: 22px;
+  line-height: 36px;
+  cursor: pointer;
+}
+
+@keyframes modalIn {
+  to {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+
+ /* 스킬 */
+#skills_wrap{
+  margin-bottom: 300px;
+}
+.skills {
+  gap: 40px;
+  width: 1400px;
+  margin: 0px auto;
+  margin-top: 120px;
+}
+
+/* 스킬 컨테이너: flex → grid로 변경 */
+.skill{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 한 줄에 4개 */
+  gap: 40px;                              /* 가로·세로 간격 */
+  justify-items: center;                  /* 각 칸 안에서 가운데 정렬 */
+  text-align: center;
+}
+
+/* 아이템 자체 크기는 그대로 */
+.circle{
+  position: relative;
+  width: 220px;
+  height: 220px;
+  /* margin-bottom: 50px;  ← gap으로 대체하므로 제거해도 됨 */
+}
+.circle svg{ width:220px; height:220px; transform: rotate(-90deg); }
+
+
+circle {
+  fill: none;
+  stroke-width: 15;
+}
+
+circle.bg {
+  stroke: #D9D9D9;
+}
+
+circle.progress {
+  stroke: #486547; 
+  stroke-dasharray: 628; 
+  stroke-dashoffset: 628;
+   stroke-linecap: round; 
+  transition: stroke-dashoffset 1s linear;
+}
+
+.inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.inner span {
+  font-size: 28px;
+  font-weight: bold;
+  display: block;
+}
+
+.inner p {
+  font-weight: 550;
+  font-size: 18px;
+  margin: 0;
+}
+.percent{
+  margin-bottom: 10px;
+}
+/* <!-- EDUCATION_start --> */
+#EDUCATION_wrap{
+  width: 1400px;
+  height: 1100px;
+  margin: 0px auto;
+}
+.timeline{
+margin-top: 120px;
+}
+.content{
+  margin-bottom: 50px;
+  margin-top: 60px;
+}
+.date{
+  padding: 6px 25px;
+  border: 1px solid #2B352B;
+  border-radius: 30px;
+  font-size: 14px;
+  
+}
+.content h3{
+  font-size: 18px;
+  margin: 10px 10px 0px;
+}
+.content p{
+  font-size: 16px;
+  margin: 5px 10px 0px;
+ color: #aaa;
+}
+/* 왼쪽라인 */
+/* 왼쪽 큰 라인 */
+.timeline-box_left {
+  float: left;
+  position: relative;
+  flex: 1;
+  padding-left: 60px; /* 원+선 공간 확보 */
+}
+
+.timeline-box_left::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 30px;       /* 라인 위치 */
+  width: 2px;
+  height: 780px;
+  background: #ccc;
+}
+/* 왼쪽 content 앞 원 */
+.timeline-box_left .content {
+  position: relative;
+}
+/* 각 원 */
+.timeline-box_left .content::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: -35px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ccc;
+  transition: background 0.3s;
+}
+.timeline-box_left .content:hover::before {
+  background: #2B352B; /* hover 색 */
+}
+.timeline-box_left .content.on::before {
+  background: #2B352B;
+}
+.timeline-box_left .content:hover .date {
+  background: #2B352B;
+  color: #fff;
+}
+.timeline-box_left .content.on .date {
+  background: #2B352B;
+  color: #fff;
+}
+/* 오른쪽 큰 라인 */
+.timeline-box_right {
+  float: right;
+  position: relative;
+  flex: 1;
+  padding-left: 100px; /* 원+선 공간 확보 */
+}
+
+.timeline-box_right::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 70px;     /* 라인 위치 */
+  width: 2px;
+  height: 780px;
+  background: #ccc;
+}
+/* 오른쪽 content 앞 원 */
+.timeline-box_right .content {
+  position: relative;
+}
+/* 오른쪽 원 */
+.timeline-box_right .content::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: -35px; 
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ccc;
+  transition: background 0.3s;
+}
+.timeline-box_right .content:hover::before {
+  background: #2B352B;
+}
+.timeline-box_right .content:hover .date {
+  background: #2B352B;
+  color: #fff;
+}
+#footer{
+  position: relative;
+  height: 100px;
+  background-color: #2B352B;
+}
+#footer h3{
+  padding-top: 35px;
+  text-align: center;
+  font-size: 20px;
+  color: #F1F2E1;
+}
+#footer img{
+  position: absolute;
+  top: -150px;
+  right: 20px;
+}

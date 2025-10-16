@@ -110,139 +110,42 @@ artworkTexts2.forEach((item, index) => {
 
 // -----------------
 // 팝업창
-(() => {
-  const modal = document.getElementById('workModal');
-  if (!modal) return;
+const popup = document.getElementById('popup');
+const popupImages = document.querySelector('.popup-images');
+const closeBtn = document.querySelector('.close-btn');
 
-  const scrim = modal.querySelector('.modal__scrim');
-  const panel = modal.querySelector('.modal__panel');
-  const closeBtn = modal.querySelector('.modal__close');
-  const img1 = document.getElementById('modalImg1');
-  const img2 = document.getElementById('modalImg2');
-
-  function openModal(src1, src2) {
-    img1.src = src1 || '';
-    img2.src = src2 || '';
-    img2.style.display = src2 ? 'block' : 'none';
-    modal.classList.add('is-open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeModal() {
-    modal.classList.remove('is-open');
-    img1.src = ''; img2.src = '';
-    document.body.style.overflow = '';
-  }
-
-  // 위임: 페이지 어디에서든 .open-popup 클릭 시 작동
-  document.addEventListener('click', (e) => {
-    const a = e.target.closest('a.open-popup');
-    if (!a) return;
+// open-popup 클릭 이벤트
+document.querySelectorAll('.open-popup').forEach(item => {
+  item.addEventListener('click', e => {
     e.preventDefault();
-    openModal(a.dataset.img1, a.dataset.img2);
-  });
+    popupImages.innerHTML = ''; // 이전 이미지 제거
 
-  scrim.addEventListener('click', closeModal);
-  closeBtn.addEventListener('click', closeModal);
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeModal();
-  });
-})();
-// 영상팝업
-(() => {
-  const modal = document.getElementById('workModal');
-  if (!modal) return;
-
-  const scrim = modal.querySelector('.modal__scrim');
-  const closeBtn = modal.querySelector('.modal__close');
-  const content = modal.querySelector('.modal__content'); // 컨텐트 래퍼
-  const img1 = document.getElementById('modalImg1');
-  const img2 = document.getElementById('modalImg2');
-
-  function clearDynamicMedia() {
-    // 동적으로 추가한 video/iframe 제거 + 재생 멈춤
-    const v = content.querySelector('video');
-    if (v) { try { v.pause(); } catch(e){} v.remove(); }
-    const f = content.querySelector('iframe');
-    if (f) f.remove();
-  }
-
- function openImages(src1, src2) {
-  clearDynamicMedia();
-  img1.style.display = src1 ? 'block' : 'none';
-  img2.style.display = src2 ? 'block' : 'none';
-  img1.src = src1 || '';
-  img2.src = src2 || '';
-
-  closeBtn.style.display = "block"; // 이미지일 때는 닫기 버튼 보이게
-  modal.classList.add('is-open');
-  document.body.style.overflow = 'hidden';
-}
-
-function openVideo(src) {
-  clearDynamicMedia();
-  img1.style.display = 'none';
-  img2.style.display = 'none';
-
-  const v = document.createElement('video');
-  v.src = src;
-  v.controls = true;
-  v.autoplay = true;
-  v.playsInline = true;
-  content.appendChild(v);
-
-  closeBtn.style.display = "none"; // ✅ 비디오일 때는 닫기 버튼 숨김
-  modal.classList.add('is-open');
-  document.body.style.overflow = 'hidden';
-}
-
-function openEmbed(url) {
-  clearDynamicMedia();
-  img1.style.display = 'none';
-  img2.style.display = 'none';
-
-  const iframe = document.createElement('iframe');
-  iframe.src = url;
-  iframe.allow = 'autoplay; encrypted-media; picture-in-picture';
-  iframe.allowFullscreen = true;
-  content.appendChild(iframe);
-
-  closeBtn.style.display = "block"; // 임베드(Youtube 등)에는 닫기 버튼 유지
-  modal.classList.add('is-open');
-  document.body.style.overflow = 'hidden';
-}
-
-
-  // 위임 클릭: 모든 .open-popup 에서 동작
-  document.addEventListener('click', (e) => {
-    const a = e.target.closest('a.open-popup');
-    if (!a) return;
-
-    e.preventDefault();
-
-    // 1) 우선순위: data-embed(유튜브 등) > data-video(로컬 파일) > 이미지
-    const embed = a.dataset.embed;
-    const video = a.dataset.video || a.dataset.img1; // 혹시 img1에 mp4 넣어도 처리
-    const img1Src = a.dataset.img1 && !/\.mp4|\.webm|\.ogg/i.test(a.dataset.img1) ? a.dataset.img1 : '';
-    const img2Src = a.dataset.img2 || '';
-
-    if (embed) {
-      openEmbed(embed);
-    } else if (video && /(\.mp4|\.webm|\.ogg)$/i.test(video)) {
-      openVideo(video);
-    } else if (img1Src || img2Src) {
-      openImages(img1Src, img2Src);
-    } else {
-      // 데이터가 없으면 무시
-      return;
+    // data-img1 ~ data-img5까지 탐색
+    for (let i = 1; i <= 6; i++) {
+      const imgSrc = item.getAttribute(`data-img${i}`);
+      if (imgSrc) {
+        const img = document.createElement('img');
+        img.src = imgSrc;
+        popupImages.appendChild(img);
+      }
     }
-  });
 
-  scrim.addEventListener('click', closeModal);
-  closeBtn.addEventListener('click', closeModal);
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeModal();
+    popup.style.display = 'flex';
   });
-})();
+});
+
+// 닫기 버튼
+closeBtn.addEventListener('click', () => {
+  popup.style.display = 'none';
+});
+
+// 배경 클릭시 닫기
+popup.addEventListener('click', e => {
+  if (e.target === popup) {
+    popup.style.display = 'none';
+  }
+});
+
 
         // ---------------------------
 // 날짜/타임라인: hover 시 한 개만 on 유지 (정상 동작 버전)

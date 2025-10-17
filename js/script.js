@@ -146,6 +146,59 @@ popup.addEventListener('click', e => {
   }
 });
 
+// 비디오 팝업
+document.addEventListener("DOMContentLoaded", () => {
+  const popup = document.getElementById("popup");
+  const popupContent = popup.querySelector(".popup-content");
+  const popupImages = popup.querySelector(".popup-images");
+  const closeBtn = popup.querySelector(".close-btn");
+
+  // 팝업 열기
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest(".open-popup");
+    if (!a) return;
+    e.preventDefault();
+
+    const videoSrc = a.dataset.video;
+    const img1 = a.dataset.img1;
+    const img2 = a.dataset.img2;
+    const img3 = a.dataset.img3;
+    const img4 = a.dataset.img4;
+
+    popupImages.innerHTML = ""; // 기존 이미지/비디오 제거
+
+    // ✅ 비디오인 경우
+    if (videoSrc) {
+      const video = document.createElement("video");
+      video.src = videoSrc;
+      video.controls = true;
+      video.autoplay = true;
+      video.muted = true;
+      video.style.width = "100%";
+      video.style.borderRadius = "8px";
+      popupImages.appendChild(video);
+    } 
+    // ✅ 이미지인 경우
+    else {
+      [img1, img2, img3, img4].forEach(src => {
+        if (src) {
+          const img = document.createElement("img");
+          img.src = src;
+          img.alt = "";
+          popupImages.appendChild(img);
+        }
+      });
+    }
+
+    popup.classList.add("is-open");
+  });
+
+  // 팝업 닫기
+  closeBtn.addEventListener("click", () => {
+    popup.classList.remove("is-open");
+    popupImages.innerHTML = "";
+  });
+});
 
         // ---------------------------
 // 날짜/타임라인: hover 시 한 개만 on 유지 (정상 동작 버전)

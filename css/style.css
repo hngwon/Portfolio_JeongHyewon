@@ -12,7 +12,7 @@ a{
 body{
     font-family: "Anek Devanagari", sans-serif;
     font-size: 22px;
-    background: url(../image/bg.png) no-repeat center 100px;
+    background: url(../image/bg.png) no-repeat center 30px;
 }
 /* <!-- Google Fonts --> */
 @import url('https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@100..800&display=swap');
@@ -22,11 +22,12 @@ body{
 }
  
 h1{
-    width: 1400px;
+    width: 1399px;
     margin: 0 auto;
     font-size: 30px;
     line-height: 0.8;
-    margin-top: 200px;
+    margin-top: 150px;
+    padding-top: 80px;
     margin-bottom: 50px;
 }
 h1 img{
@@ -35,7 +36,7 @@ h1 img{
 }
 /*  <!-- header-area start --> */
 #header_wrap {
-  width: 1400px;
+  width: 1399px;
   height: 50px;
   margin: 0 auto;
   position: absolute;
@@ -59,13 +60,9 @@ h1 img{
   justify-content: center;
 }
 
-section,
-div[id] {
-  scroll-margin-top: 70px;
-}
 
 .nav {
-  width: 1400px;
+  width: 1399px;
   display: flex;
   justify-content: center;
   font-size: 20px;
@@ -84,20 +81,38 @@ div[id] {
 /* <!-- video start --> */
 #video {
   position: relative;
-  width: 1920px;
-  margin: 0px auto;
-  height: 950px;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
 }
 
+#video video {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+/* 노트북 */
+@media (max-width: 1500px) {
+  #video {
+    width: 100%;
+  }
+  #video video {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
 /*  <!-- about_wrapstart --> */
 #about_wrap {
-  width: 1400px;
+  width: 1399px;
   margin: 0px auto;
   margin-top: 120px;
 }
 
 .about {
-  width: 1400px;
+  width: 1399px;
   margin: 0px auto;
   display: flex;
   justify-content: space-between;
@@ -112,7 +127,7 @@ div[id] {
 }
 
 #Profile {
-  width: 1400px;
+  width: 1399px;
   margin: 0px auto;
   display: flex;
   justify-content: space-between;
@@ -193,7 +208,7 @@ justify-content: space-between;
 
 /* <!-- Project_wrap start --> */
 .Project {
-  width: 1400px;
+  width: 1399px;
   margin: 0px auto;
   margin-top: 60px;
   display: flex;
@@ -471,13 +486,20 @@ justify-content: space-between;
 .close-btn:hover {
   background: rgba(255,255,255,1);
 }
+@media (max-width: 1500px) {
+  .popup-images img {
+    max-width: 300px;
+    max-height: 60vh;
+  }
+}
+
  /* 스킬 */
 #skills_wrap{
   margin-bottom: 300px;
 }
 .skills {
   gap: 40px;
-  width: 1400px;
+  width: 1399px;
   margin: 0px auto;
   margin-top: 120px;
 }
@@ -542,7 +564,7 @@ circle.progress {
 }
 /* <!-- EDUCATION_start --> */
 #EDUCATION_wrap{
-  width: 1400px;
+  width: 1399px;
   height: 1100px;
   margin: 0px auto;
 }

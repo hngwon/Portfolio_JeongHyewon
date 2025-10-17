@@ -199,6 +199,26 @@ document.addEventListener("DOMContentLoaded", () => {
     popupImages.innerHTML = "";
   });
 });
+// ✅ 팝업 열릴 때 닫기 버튼 위치 계산
+document.addEventListener("click", (e) => {
+  const a = e.target.closest(".open-popup");
+  if (!a) return;
+
+  setTimeout(() => {
+    const popup = document.getElementById("popup");
+    const popupContent = popup.querySelector(".popup-content");
+    const closeBtn = popup.querySelector(".close-btn");
+
+    if (popupContent && closeBtn) {
+      const rect = popupContent.getBoundingClientRect();
+
+      closeBtn.style.position = "fixed";
+      closeBtn.style.top = `${rect.top - 50}px`;    // 박스보다 살짝 위
+      closeBtn.style.left = `${rect.right - 25}px`; // 박스 오른쪽 끝 살짝 바깥
+    }
+  }, 50);
+});
+
 
         // ---------------------------
 // 날짜/타임라인: hover 시 한 개만 on 유지 (정상 동작 버전)

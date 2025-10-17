@@ -294,26 +294,35 @@ justify-content: space-between;
   margin-top: 60px;
   display: flex;
   justify-content: space-between;
+   align-items: flex-start;
   position: relative;
   gap: 50px;
 }
 
 .Swiper_img {
-  width: 70%;
+  width: 73%;
+  overflow: visible;
 }
 
 .Swiper_text {
-  width: 25%;
+  width: 20%;
   margin-right: 5%;
   padding-top: 50px;
   text-align: right;
 }
-
+.silde{
+  background-color: #f1f1f1;
+  padding: 5px 0px;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 16px;
+}
 /* 두 번째 줄: 텍스트 왼쪽, 이미지 오른쪽 */
 #Swiper_wrap2 {
   margin-top: 100px;
-  display: flex;
+   display: flex;
   justify-content: space-between;
+   align-items: flex-start;
   position: relative;
   gap: 50px;
 }
@@ -330,7 +339,7 @@ justify-content: space-between;
 }
 
 .Swiper_text_left {
-  width: 25%;
+  width: 20%;
   padding-top: 50px;
   text-align: left;
   position: relative;
@@ -338,7 +347,7 @@ justify-content: space-between;
 }
 
 .Swiper_text_left img {
-  scale: 0.65;
+  scale: 0.55;
   position: absolute;
   top: 110px;
   left: -55px;
@@ -346,7 +355,8 @@ justify-content: space-between;
 }
 
 .Swiper_img_right {
-  width: 70%;
+  width: 75%;
+  overflow: visible;
 }
 
 /* Swiper 공통 스타일 */
@@ -431,15 +441,12 @@ justify-content: space-between;
 /* === modal base === */
 .popup {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.6);
+  inset: 0;
   display: none;
-  align-items: center;
   justify-content: center;
-  z-index: 999;
+  align-items: center;
+  background: rgba(0,0,0,0.6);
+  z-index: 9999;
 }
 
 /* 팝업 콘텐츠 */
@@ -451,6 +458,7 @@ justify-content: space-between;
   max-height: 90%;
   overflow-y: auto;
   padding: 20px;
+  box-sizing: border-box;
 }
 
 /* 이미지 컨테이너 */
@@ -471,21 +479,17 @@ justify-content: space-between;
 
 /* 닫기 버튼 */
 .close-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: rgba(255,255,255,0.8);
+  position: fixed;
+  background: transparent; 
+  color: #fff;          
+  font-size: 35px; 
+  font-weight: bold;
   border: none;
-  font-size: 24px;
   cursor: pointer;
-  border-radius: 50%;
-  width: 35px;
-  height: 35px;
-  line-height: 30px;
+  z-index: 10000;
+  line-height: 1;
 }
-.close-btn:hover {
-  background: rgba(255,255,255,1);
-}
+
 @media (max-width: 1500px) {
   .popup-images img {
     max-width: 300px;
@@ -596,14 +600,15 @@ margin-top: 120px;
   float: left;
   position: relative;
   flex: 1;
-  padding-left: 60px; /* 원+선 공간 확보 */
+  padding-left: 60px;
+   /* 원+선 공간 확보 */
 }
-
+/* 라인 위치 */
 .timeline-box_left::before {
   content: "";
   position: absolute;
   top: 0;
-  left: 30px;       /* 라인 위치 */
+  left: 30px;       
   width: 2px;
   height: 780px;
   background: #ccc;

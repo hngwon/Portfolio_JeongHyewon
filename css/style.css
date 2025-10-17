@@ -492,7 +492,6 @@ justify-content: space-between;
     max-height: 60vh;
   }
 }
-
  /* 스킬 */
 #skills_wrap{
   margin-bottom: 300px;
@@ -643,15 +642,16 @@ margin-top: 120px;
 .timeline-box_right {
   float: right;
   position: relative;
+  right: 80px;
   flex: 1;
-  padding-left: 100px; /* 원+선 공간 확보 */
+  padding-left: 60px; /* 원+선 공간 확보 */
 }
 
 .timeline-box_right::before {
   content: "";
   position: absolute;
   top: 0;
-  left: 70px;     /* 라인 위치 */
+  left: 0px;     /* 라인 위치 */
   width: 2px;
   height: 780px;
   background: #ccc;
@@ -665,7 +665,7 @@ margin-top: 120px;
   content: "";
   position: absolute;
   top: 10px;
-  left: -35px; 
+  left: -65px; 
   width: 12px;
   height: 12px;
   border-radius: 50%;

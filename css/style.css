@@ -26,7 +26,7 @@ h1{
     margin: 0 auto;
     font-size: 30px;
     line-height: 0.8;
-    margin-top: 150px;
+    margin-top: 100px;
     padding-top: 80px;
     margin-bottom: 50px;
 }
@@ -229,7 +229,6 @@ justify-content: space-between;
   padding: 5px 0px 15px;
   font-weight: 600;
 }
-
   .img_wrap {
     width: 680px;
     height: 450px;
@@ -291,7 +290,7 @@ justify-content: space-between;
 
 /* 첫 번째 줄: 이미지 왼쪽, 텍스트 오른쪽 */
 #Swiper_wrap {
-  margin-top: 60px;
+  margin-top: 20px;
   display: flex;
   justify-content: space-between;
    align-items: flex-start;
@@ -440,25 +439,28 @@ justify-content: space-between;
 /*팝업 */
 /* === modal base === */
 .popup {
+  background: rgba(0, 0, 0, 0.753);
   position: fixed;
   inset: 0;
-  display: none;
+  display: none !important;
   justify-content: center;
   align-items: center;
-  background: rgba(0,0,0,0.6);
   z-index: 9999;
 }
-
+.popup.is-open {
+  display: flex !important;
+}
 /* 팝업 콘텐츠 */
 .popup-content {
   position: relative;
-  background: #fff;
   border-radius: 10px;
   max-width: 90%;
   max-height: 90%;
   overflow-y: auto;
+  background-color: #ffffff;
   padding: 20px;
   box-sizing: border-box;
+  display: inline-block
 }
 
 /* 이미지 컨테이너 */
@@ -471,6 +473,7 @@ justify-content: space-between;
 
 /* 이미지 */
 .popup-images img {
+  display: block;
   max-width: 400px;
   height: auto;
   border-radius: 5px;
@@ -496,6 +499,249 @@ justify-content: space-between;
     max-height: 60vh;
   }
 }
+
+/* artwork */
+.filter-buttons {
+    width: 1399px;
+    margin: 0px auto;
+  text-align: center;
+  margin-top: 80px;
+}
+
+.filter-buttons button {
+  background: none;
+  border: 1px solid #ccc;
+  padding: 6px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 80px;
+}
+
+.filter-buttons button.active {
+  background-color: #2B352B;
+  color: #fff;
+}
+
+/* ========== Artwork: 가운데 정렬 안정화 ========== */
+#artwork .artwork-list{
+  width: 1399px;              
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow: visible;
+  gap: 20px;
+}
+
+#artwork .art-item{
+  flex: 0 0 auto; 
+  width: 260px;
+  height: 360px;
+  overflow: hidden;
+  border-radius: 16px;
+  transition: opacity .3s ease, transform .3s ease;
+}
+
+
+#artwork .art-item.hide{
+  display: none !important;
+  transform: scale(.98);
+}
+
+#artwork .art-item.show{
+  display: block;
+  animation: fadeIn .25s ease;
+}
+
+#artwork .art-item img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 호버 시 이미지 살짝 확대 */
+.art-item:hover img {
+  transform: scale(1.05);
+  transition: all 0.3s;
+  
+}
+
+/* 중앙 텍스트 (기본은 숨김) */
+.hover-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.0); 
+  color: rgba(255,255,255,0);
+  font-size: 18px;
+  font-weight: 400;
+  opacity: 0;
+  transition: all 0.5s ease;
+  letter-spacing: 1px;
+  border-radius: 16px;
+}
+.hover-text p{
+    font-size: 16px;
+    margin: 0; 
+  line-height: 1.4; 
+    text-align: center;
+}
+.art-item:hover .hover-text {
+  background: rgba(0,0,0,0.25);
+  color: rgba(255,255,255,1);
+  opacity: 1;
+}
+.art-item {
+  transition: all 0.4s ease; 
+  opacity: 1;
+  transform: scale(1);
+}
+/* ---------- 팝업 ---------- */
+/* 숨겨진 팝업 템플릿은 화면에 안 보이게 */
+.art-popup-template {
+  display: none;
+  visibility: hidden;
+}
+
+/* 팝업 오버레이 (화면 전체 어둡게) */
+.art-popup{
+  position: fixed;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.753);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+/* 팝업 내용 박스 */
+.art-popup-inner {
+  padding: 40px;
+  width: 1200px;
+  margin: 0px auto;
+  max-width: 1400px;
+  color: #fcfaf1;
+  position: relative;
+  animation: popupZoom 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 닫기 버튼 */
+.art-popup-inner .art-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* 팝업 안의 본문 레이아웃 */
+.art-popup-content {
+  display: flex;
+  align-items: flex-start;  
+  gap: 40px;                 
+  flex-wrap: nowrap;
+  margin: 20px 0px auto;
+}
+
+/* 왼쪽 이미지 */
+.art-popup-left {
+  flex: 0 0 30%;
+}
+
+.art-popup-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 오른쪽 설명 영역 */
+.art-popup-right {
+  flex: 1;
+  display: block;
+}
+
+/* 제목 */
+.art-popup-right h2 {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin-bottom: 8px;
+  margin-top: 80px;
+}
+
+/* 부제목 */
+.art-popup-right h4 {
+  font-size: 16px;
+  margin-bottom: 25px;  
+}
+
+/* Work / Tool 정보 */
+.art-project-info {
+  margin-bottom: 15px;            /* ✅ info 전체 간격 */
+}
+.project-info p {
+  margin: 4px 0;
+  font-size: 15px;
+}
+strong {
+  margin-right: 20px;
+}
+
+/* 본문 */
+.project-desc {
+   margin-top: 30px;
+  width: 90%;
+  margin-bottom: 25px;            /* ✅ 본문과 이미지 사이 간격 */
+}
+.project-desc p {
+  line-height: 1.5;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  margin: 0;
+}
+
+/* 하단 썸네일 */
+.sub-images {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  margin-top: 10px;               /* ✅ 본문과의 간격 */
+}
+
+.sub-images img {
+  border-radius: 6px;
+  transition: transform 0.3s ease;
+}
+
+.sub-images img:hover {
+  transform: scale(1.05);
+}
+
+/* 등장 애니메이션 */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes popupZoom {
+  from { transform: scale(0.9); }
+  to { transform: scale(1); }
+}
+
+
  /* 스킬 */
 #skills_wrap{
   margin-bottom: 300px;

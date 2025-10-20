@@ -129,8 +129,6 @@ document.querySelectorAll('.open-popup').forEach(item => {
         popupImages.appendChild(img);
       }
     }
-
-    popup.style.display = 'flex';
   });
 });
 
@@ -217,6 +215,116 @@ document.addEventListener("click", (e) => {
       closeBtn.style.left = `${rect.right - 25}px`; // 박스 오른쪽 끝 살짝 바깥
     }
   }, 50);
+});
+// =============================
+// artwork
+// =============================
+$(document).ready(function () {
+  console.log("✅ script.js loaded");
+
+  // ==============================
+  // 1️⃣ 헤더 스크롤 고정
+  // ==============================
+  const header = $("#header_wrap");
+  const video = $("#video");
+
+  $(window).on("scroll", function () {
+    const videoBottom = video.offset().top + video.outerHeight();
+    if ($(window).scrollTop() >= videoBottom) {
+      header.addClass("fixed");
+    } else {
+      header.removeClass("fixed");
+    }
+  });
+
+  // ==============================
+  // 2️⃣ 카드뉴스 / 비디오 팝업 (#popup)
+  // ==============================
+  const popup = $("#popup");
+  const popupImages = $(".popup-images");
+  const closeBtn = $(".close-btn");
+
+  $(".open-popup").on("click", function (e) {
+    e.preventDefault();
+
+    // Artwork용은 제외
+    if ($(this).data("type") === "artwork") return;
+
+    popupImages.html("");
+    for (let i = 1; i <= 6; i++) {
+      const imgSrc = $(this).attr(`data-img${i}`);
+      if (imgSrc) {
+        const img = $("<img>").attr("src", imgSrc);
+        popupImages.append(img);
+      }
+    }
+
+    popup.addClass("is-open").css("display", "flex");
+  });
+
+  closeBtn.on("click", () => popup.removeClass("is-open").hide());
+  popup.on("click", function (e) {
+    if (e.target === this) popup.removeClass("is-open").hide();
+  });
+
+  // ==============================
+  // 3️⃣ Artwork 필터 버튼
+  // ==============================
+  $(".filter-buttons button").click(function () {
+    const filter = $(this).data("filter");
+
+    $(".filter-buttons button").removeClass("active");
+    $(this).addClass("active");
+
+    $(".art-item").each(function () {
+      if (filter === "*" || $(this).is(filter)) {
+        $(this).removeClass("hide").addClass("show");
+      } else {
+        $(this).removeClass("show").addClass("hide");
+      }
+    });
+  });
+
+  // ==============================
+  // 4️⃣ Artwork 팝업 (별도 스타일)
+  // ==============================
+  $(".art-item").click(function () {
+    const popupId = $(this).data("popup");
+    const popupTemplate = $("#" + popupId);
+
+    if (!popupTemplate.length) return; // 템플릿 없으면 종료
+
+    const popupContent = popupTemplate.html();
+
+    const popup = $(`
+      <div class="art-popup">
+        ${popupContent}
+      </div>
+    `);
+
+    $("body").append(popup);
+
+    // 닫기 기능
+    $(".art-close, .art-popup").on("click", function (e) {
+      if ($(e.target).hasClass("art-popup") || $(e.target).hasClass("art-close")) {
+        $(".art-popup").remove();
+      }
+    });
+  });
+
+  // ==============================
+  // 5️⃣ 타임라인 Hover (기존 유지)
+  // ==============================
+  const contents = $(".timeline-box_left .content, .timeline-box_right .content");
+  contents.on("mouseenter", function () {
+    contents.removeClass("on");
+    $(this).addClass("on");
+  });
+
+  // ==============================
+  // ✅ 디버깅 확인용 로그
+  // ==============================
+  console.log("✅ All event bindings complete.");
 });
 
 

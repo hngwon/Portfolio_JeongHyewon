@@ -11,6 +11,8 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="icon" type="image/png" sizes="32x32" href="./image/Fabicon.png">
   <!-- 파비콘 이미지 연결 -->
+   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+   <!-- aos -->
 </head>
 
 <body>
@@ -47,8 +49,10 @@
       <video src="./image/최종.mp4" autoplay loop muted></video>
     </div>
     <!-- about start -->
+    
     <div id="about_wrap">
-      <h1><img src="./image/icon.png" alt="icon">ABOUT</h1>
+      <h1><img src="./image/icon.png" alt="icon">ABOUT</h1> <div data-aos="fade-up"
+     data-aos-duration="1000">
       <ul class="about">
         <li>
           <p>안녕하십니까?</p>
@@ -95,9 +99,13 @@
         </div>
       </div>
     </div>
+    </div>
     <!-- Projec start -->
+     
     <div id="Project_wrap">
       <h1><img src="./image/icon.png" alt="icon">PROJECT</h1>
+      <div data-aos="fade-up"
+     data-aos-duration="1000">
       <ul class="Project">
         <li>
           <div class="Project_box">
@@ -139,9 +147,12 @@
         <!-- essenza_e -->
       </ul>
     </div>
+    </div>
     <!--ARTWORK start  -->
     <div id="AD_DESIGN">
       <h1><img src="./image/icon.png" alt="icon">AD DESIGN</h1>
+       <div data-aos="fade-up"
+     data-aos-duration="1000">
       <div id="Detailed_Page">
         <!-- 첫 번째 줄: 이미지 왼쪽, 텍스트 오른쪽 -->
         <div id="Swiper_wrap">
@@ -276,12 +287,13 @@
           <div class="popup-images"></div>
         </div>
       </div>
-
     </div>
     <!-- artwork end -->
     <!-- 추가 작업물 -->
     <div id="artwork">
       <h1><img src="./image/icon.png" alt="icon">ARTWORK</h1>
+      <div data-aos="fade-up"
+     data-aos-duration="1000">
       <div class="filter-buttons">
         <button data-filter="*" class="active">전체</button>
         <button data-filter=".interior">실내디자인</button>
@@ -477,10 +489,13 @@
           </div>
         </div>
       </div>
+      </div>
       <!-- ARTWORK_E -->
       <!-- skills start -->
       <div id="skills_wrap">
         <h1><img src="./image/icon.png" alt="icon">SKILLS</h1>
+        <div data-aos="fade-up"
+     data-aos-duration="1000">
         <div class="skills">
           <div class="skill">
             <div class="circle" data-percent="90">
@@ -595,9 +610,12 @@
           </div>
         </div>
       </div>
+      </div>
       <!-- EDUCATION_start -->
       <div id="EDUCATION_wrap">
         <h1><img src="./image/icon.png" alt="icon">EDUCATION & EXPERIENCE</h1>
+        <div data-aos="fade-up"
+     data-aos-duration="1000">
         <div class="timeline">
           <div class="timeline-box_left">
             <div class="content on">
@@ -659,13 +677,15 @@
           </div>
         </div>
       </div>
+      </div>
       <!-- footer_start -->
       <div id="footer">
         <h3>Copyright ©2025. Jeong Hyewon All Rights Reserved.</h3>
         <img src="./image/contact me.png" alt="contact">
       </div>
     </div>
-    <!-- Swiper JS -->
+     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- 다운로드 한 제이쿼리 소스 연결 -->
     <script src="./js/jquery-3.7.1.min.js"></script>
@@ -736,7 +756,10 @@
         window.addEventListener("scroll", startIfNeeded, { passive: true });
       });
     </script>
-
+ 
+  <script>
+  AOS.init();
+</script>
 </body>
 
 </html>

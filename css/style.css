@@ -444,13 +444,13 @@ justify-content: space-between;
   background: rgba(0, 0, 0, 0.753);
   position: fixed;
   inset: 0;
-  display: none !important;
+  display: none ;
   justify-content: center;
   align-items: center;
   z-index: 9999;
 }
 .popup.is-open {
-  display: flex !important;
+  display: flex ;
 }
 /* 팝업 콘텐츠 */
 .popup-content {
@@ -462,7 +462,6 @@ justify-content: space-between;
   background-color: #ffffff;
   padding: 20px;
   box-sizing: border-box;
-  display: inline-block
 }
 
 /* 이미지 컨테이너 */
@@ -484,7 +483,7 @@ justify-content: space-between;
 
 /* 닫기 버튼 */
 .close-btn {
-  position: fixed;
+  position: absolute;
   background: transparent; 
   color: #fff;          
   font-size: 35px; 

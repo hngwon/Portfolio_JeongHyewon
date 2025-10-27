@@ -15,6 +15,9 @@ body{
     font-size: 22px;
     background: url(../image/bg.png) no-repeat center 30px;
 }
+body.no-scroll {
+  overflow: hidden;
+}
 /* <!-- Google Fonts --> */
 @import url('https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@100..800&display=swap');
 

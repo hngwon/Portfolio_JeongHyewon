@@ -818,7 +818,7 @@ circle.progress {
 /* <!-- EDUCATION_start --> */
 #EDUCATION_wrap{
   width: 1399px;
-  height: 1100px;
+  height: 1300px;
   margin: 0px auto;
 }
 .timeline{
@@ -860,7 +860,7 @@ margin-top: 120px;
   top: 0;
   left: 30px;       
   width: 2px;
-  height: 780px;
+  height: 900px;
   background: #ccc;
 }
 /* 왼쪽 content 앞 원 */

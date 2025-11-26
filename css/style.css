@@ -284,7 +284,17 @@ justify-content: space-between;
   font-size: 18px;
   font-weight: 400;
 }
-
+/* 네이버 배너 */
+.fixed-wrap{
+ height: 160px;
+            background: #c3bd9e url(../image/Naver\ Item\ board.png) no-repeat top fixed;
+            margin-top: 80px;
+}
+.fixed-wrap a img{
+  height: 100%;
+  margin: 0px auto;
+  display: block;
+}
 /* 아트워크 시작 */
 /* 상세페이지 박스 */
 /* 상세페이지 박스 */
